@@ -21,7 +21,24 @@ public class bestCustomer {
                     else
                         count.put(str.charAt(i),
                                 count.get(str.charAt(i)) + 1);
+
+                    for (int j = 0; j < str.length(); j++) {
+                        if (!count.containsKey(str.charAt(j)))
+                            count.put(str.charAt(j), 1);
+                        else
+                            count.put(str.charAt(j),
+                                    count.get(str.charAt(j)) + 1);
+                    }
                 }
+
+            for (int j = 0; j < str.length(); j++) {
+                if (!count.containsKey(str.charAt(j)))
+                    count.put(str.charAt(j), 1);
+                else
+                    count.put(str.charAt(j),
+                            count.get(str.charAt(j)) + 1);
+            }
+
 
                 /*Print duplicates in sorted order*/
                 for (Map.Entry mapElement : count.entrySet()) {
@@ -32,19 +49,10 @@ public class bestCustomer {
                         System.out.println(key
                                 + ", count = " + value);
                 }
+
+
             }
-        static class Customer {
-            public String customer_id;
-            public String transaction_amount;
-            public String transaction_date;
 
-            TreeMap<String,Customer> sortedCustomer= new TreeMap<String,Customer>();
-            //loop through arrays and put new Customers into Map
-
-            Collection<Customer> values = sortedCustomer.values();
-
-
-        }
 
         public static void main(String[] args) throws IOException, CsvException {
 
@@ -52,6 +60,18 @@ public class bestCustomer {
             try (CSVReader reader = new CSVReader(new FileReader(fileName))) {
                 List<String[]> r = reader.readAll();
                 String str = fileName;
+                class Customer {
+                    public String customer_id;
+                    public String transaction_amount;
+                    public String transaction_date;
+
+                    TreeMap<String,Customer> sortedCustomer= new TreeMap<String,Customer>();
+                    //loop through arrays and put new Customers into Map
+
+                    Collection<Customer> values = sortedCustomer.values();
+
+
+                }
                 printDups(str);
                 r.forEach(x -> System.out.println(Arrays.toString(x)));
             }
