@@ -2,6 +2,7 @@ package com.bring.customer.service;
 
 import com.opencsv.CSVReader;
 import com.opencsv.exceptions.CsvException;
+import org.apache.commons.lang3.math.Fraction;
 
 import java.io.FileReader;
 import java.io.IOException;
@@ -32,6 +33,18 @@ public class bestCustomer {
                                 + ", count = " + value);
                 }
             }
+        static class Customer {
+            public String customer_id;
+            public String transaction_amount;
+            public String transaction_date;
+
+            TreeMap<String,Customer> sortedCustomer= new TreeMap<String,Customer>();
+            //loop through arrays and put new Customers into Map
+
+            Collection<Customer> values = sortedCustomer.values();
+
+
+        }
 
         public static void main(String[] args) throws IOException, CsvException {
 
